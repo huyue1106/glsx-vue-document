@@ -4,6 +4,7 @@ Vue.use(Router)
 
 const Prototypes = { template: '<prototypes />' }
 const Consts = { template: '<consts />' }
+const Detailed = { template: '<detailed />' }
 
 export const routes = [
   {
@@ -17,6 +18,10 @@ export const routes = [
   {
     path: '/consts',
     component: Consts
+  },
+  {
+    path: '/detailed',
+    component: Detailed
   }
 ]
 export default new Router({

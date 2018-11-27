@@ -1,6 +1,7 @@
 <template>
   <div>
-    <gl-table :table="constsData"></gl-table>
+    <p>Key可以自行设置，也可使用已有的Key</p>
+    <gl-table :table="tableData"></gl-table>
   </div>
 </template>
 
@@ -9,15 +10,18 @@ export default {
   name: 'prototypes',
   data () {
     return {
-      constsData: {
-        // border: true,
-        export: true,
-        height: parseInt(window.screen.height - 580),
+      tableData: {
+        border: true,
+        // export: true,
+        height: parseInt(window.screen.height - 350),
         align: 'center',
         data: [{}],
         column: [{
-          label: 'Key',
-          prop: 'key'
+          label: '方法',
+          prop: 'method'
+        }, {
+          label: '参数',
+          prop: 'parameter'
         }, {
           label: '描述',
           prop: 'description'
@@ -30,7 +34,7 @@ export default {
   },
   mounted () {
     this.$http.get('../../static/data.json').then(res => {
-      this.constsData.data = res.body.consts
+      this.tableData.data = res.body.data
     })
   }
 }
